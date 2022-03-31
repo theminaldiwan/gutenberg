@@ -17,6 +17,7 @@ export default function BlockLockMenuItem( { clientId } ) {
 	const { canLockBlock, isLocked } = useSelect(
 		( select ) => {
 			const {
+				canEditBlock,
 				canMoveBlock,
 				canRemoveBlock,
 				canLockBlockType,
@@ -29,7 +30,8 @@ export default function BlockLockMenuItem( { clientId } ) {
 				canLockBlock: canLockBlockType( getBlockName( clientId ) ),
 				isLocked:
 					! canMoveBlock( clientId, rootClientId ) ||
-					! canRemoveBlock( clientId, rootClientId ),
+					! canRemoveBlock( clientId, rootClientId ) ||
+					! canEditBlock( clientId ),
 			};
 		},
 		[ clientId ]
