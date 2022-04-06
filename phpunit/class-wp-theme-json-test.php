@@ -2457,6 +2457,11 @@ class WP_Theme_JSON_Gutenberg_Test extends WP_UnitTestCase {
 				'version'  => 2,
 				'settings' => array(
 					'appearanceTools' => true,
+					'blocks'          => array(
+						'core/paragraph' => array(
+							'appearanceTools' => true,
+						),
+					),
 				),
 			)
 		);
@@ -2466,6 +2471,11 @@ class WP_Theme_JSON_Gutenberg_Test extends WP_UnitTestCase {
 			'version'  => 2,
 			'settings' => array(
 				'appearanceTools' => true,
+				'blocks'          => array(
+					'core/paragraph' => array(
+						'appearanceTools' => true,
+					),
+				),
 			),
 		);
 
