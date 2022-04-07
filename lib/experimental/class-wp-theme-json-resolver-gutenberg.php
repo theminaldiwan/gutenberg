@@ -38,8 +38,11 @@ class WP_Theme_JSON_Resolver_Gutenberg extends WP_Theme_JSON_Resolver_6_0 {
 			$original_theme_json = new WP_Theme_JSON_Gutenberg( $theme_json_data );
 			gutenberg_register_webfonts_from_theme_json( $original_theme_json->get_settings() );
 
-			$theme_json_data = gutenberg_add_registered_webfonts_to_theme_json( $theme_json_data );
-			static::$theme   = new WP_Theme_JSON_Gutenberg( $theme_json_data );
+			if ( is_admin() ) {
+				$theme_json_data = gutenberg_add_registered_webfonts_to_theme_json( $theme_json_data );
+			}
+
+			static::$theme = new WP_Theme_JSON_Gutenberg( $theme_json_data );
 
 			if ( wp_get_theme()->parent() ) {
 				// Get parent theme.json.
