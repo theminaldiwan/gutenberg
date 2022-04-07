@@ -238,29 +238,27 @@ function PostFeaturedImage( { noticeUI, noticeOperations } ) {
 						/>
 					</MediaUploadCheck>
 					<div className="editor-post-featured-image__actions">
-						{ !! featuredImageId && media && (
-							<MediaUploadCheck>
-								<MediaUpload
-									title={
-										postLabel.featured_image ||
-										DEFAULT_FEATURE_IMAGE_LABEL
-									}
-									onSelect={ onUpdateImage }
-									unstableFeaturedImageFlow
-									allowedTypes={ ALLOWED_MEDIA_TYPES }
-									modalClass="editor-post-featured-image__media-modal"
-									render={ ( { open } ) => (
-										<Button
-											label={ __( 'Replace Image' ) }
-											icon={ edit }
-											onClick={ open }
-										/>
-									) }
-								/>
-							</MediaUploadCheck>
-						) }
 						{ !! featuredImageId && (
 							<MediaUploadCheck>
+								{ media && (
+									<MediaUpload
+										title={
+											postLabel.featured_image ||
+											DEFAULT_FEATURE_IMAGE_LABEL
+										}
+										onSelect={ onUpdateImage }
+										unstableFeaturedImageFlow
+										allowedTypes={ ALLOWED_MEDIA_TYPES }
+										modalClass="editor-post-featured-image__media-modal"
+										render={ ( { open } ) => (
+											<Button
+												label={ __( 'Replace Image' ) }
+												icon={ edit }
+												onClick={ open }
+											/>
+										) }
+									/>
+								) }
 								<Button
 									label={
 										postLabel.remove_featured_image ||
